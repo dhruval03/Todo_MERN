@@ -12,11 +12,11 @@ jobs:
     steps:
       # Step 1: Checkout the repository
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v1
 
       # Step 2: Set up Node.js (installing Node.js for the runner)
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v1
         with:
           node-version: "16" # Specify Node.js version
 
