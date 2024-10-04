@@ -12,11 +12,11 @@ jobs:
     steps:
       # Step 1: Checkout the repository
       - name: Checkout repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       # Step 2: Set up Node.js (installing Node.js for the runner)
       - name: Set up Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: "16" # Specify Node.js version
 
@@ -35,4 +35,4 @@ jobs:
       # Step 6: Deploy the build to the local server directory (copy the built files to your specified folder)
       - name: Deploy to Local Server
         run: |
-          xcopy /E /I /Y build\* "D:\A-CSPIT\A-Sem_5\ASP.Net\react-todo-app"
+          xcopy /E /I /Y "D:\A-CSPIT\A-Sem_5\ASP.Net\react-todo-app"
