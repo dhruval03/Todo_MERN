@@ -1,4 +1,5 @@
-name: Deploy React App to Windows 
+name: Deploy React App to Windows 11
+
 on:
   push:
     branches:
@@ -19,14 +20,19 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        shell: pwsh # Use PowerShell for this step
 
       - name: Run Tests
-        run: npm test -- --watchAll=false # Run tests without watch mode
+        run: npm test -- --watchAll=false
+        shell: pwsh # Use PowerShell for this step
 
       - name: Build the app
         run: npm run build
+        shell: pwsh # Use PowerShell for this step
 
       - name: Deploy to Local Server
         run: |
           # Copy the build files to your server's root directory
           xcopy /E /I /Y build\* "D:\ReactApp\"
+        shell: pwsh # Use PowerShell for this step
+
