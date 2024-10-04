@@ -1,32 +1,33 @@
-name: CI-CD Pipeline for MERN App
+name: Deploy React App to 
 
 on:
   push:
     branches:
-      - main  # Trigger deployment when code is pushed to main branch
+      - main # Deploy on push to the main branch
 
 jobs:
   build:
-    runs-on: self-hosted  # Use self-hosted runner (local server)
-    
+    runs-on: self-hosted # Use self-hosted runner
+
     steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2
         with:
-          node-version: '16'  # Match your Node.js version
+          node-version: "16" # Specify Node.js version
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build the application
-        run: npm run build  # If you have a build step in your MERN app
+      - name: Run Tests
+        run: npm test -- --watchAll=false # Run tests without watch mode
 
-      - name: Deploy to local server
+      - name: Build the app
+        run: npm run build
+
+      - name: Deploy to Local Server
         run: |
-          pm2 stop all  # Stop existing processes
-          pm2 start npm --name "mern-app" -- run start  # Start the app using PM2
-        env:
-          NODE_ENV: production
+          # Copy the build files to your server's root directory
+          
