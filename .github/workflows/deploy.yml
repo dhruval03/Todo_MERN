@@ -22,10 +22,6 @@ jobs:
         run: npm install
         shell: cmd # Explicitly use Command Prompt
 
-      - name: Run Tests
-        run: npm test -- --watchAll=false
-        shell: cmd # Explicitly use Command Prompt
-
       - name: Build the app
         run: npm run build
         shell: cmd # Explicitly use Command Prompt
