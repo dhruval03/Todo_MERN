@@ -11,21 +11,21 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: "16" # Specify Node.js version
 
       - name: Install dependencies
-        run: npm install # Will run using cmd
+        run: npm install # This will run using the default cmd shell
 
       - name: Run Tests
-        run: npm test -- --watchAll=false # Will run using cmd
+        run: npm test -- --watchAll=false # This will also run using cmd
 
       - name: Build the app
-        run: npm run build # Will run using cmd
+        run: npm run build # Run build using cmd
 
       - name: Deploy to Local Server
         run: |
