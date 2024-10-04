@@ -1,5 +1,4 @@
-name: Deploy React App to 
-
+name: Deploy React App to Windows 
 on:
   push:
     branches:
@@ -30,4 +29,4 @@ jobs:
       - name: Deploy to Local Server
         run: |
           # Copy the build files to your server's root directory
-          
+          xcopy /E /I /Y build\* "D:\ReactApp\"
