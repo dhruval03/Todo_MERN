@@ -20,19 +20,18 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        shell: pwsh # Use PowerShell for this step
+        shell: powershell # Use Windows PowerShell instead of pwsh
 
       - name: Run Tests
         run: npm test -- --watchAll=false
-        shell: pwsh # Use PowerShell for this step
+        shell: powershell # Use Windows PowerShell instead of pwsh
 
       - name: Build the app
         run: npm run build
-        shell: pwsh # Use PowerShell for this step
+        shell: powershell # Use Windows PowerShell instead of pwsh
 
       - name: Deploy to Local Server
         run: |
           # Copy the build files to your server's root directory
           xcopy /E /I /Y build\* "D:\ReactApp\"
-        shell: pwsh # Use PowerShell for this step
-
+        shell: powershell # Use Windows PowerShell instead of pwsh
