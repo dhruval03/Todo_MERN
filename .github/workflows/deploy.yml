@@ -20,18 +20,14 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        shell: powershell # Use Windows PowerShell instead of pwsh
 
       - name: Run Tests
         run: npm test -- --watchAll=false
-        shell: powershell # Use Windows PowerShell instead of pwsh
 
       - name: Build the app
         run: npm run build
-        shell: powershell # Use Windows PowerShell instead of pwsh
 
       - name: Deploy to Local Server
         run: |
           # Copy the build files to your server's root directory
-          xcopy /E /I /Y build\* "D:\ReactApp\"
-        shell: powershell # Use Windows PowerShell instead of pwsh
+          xcopy /E /I /Y build\* "D:\A-CSPIT\A-Sem_5\ASP.Net\react-todo-app"
